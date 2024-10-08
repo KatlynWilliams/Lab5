@@ -30,7 +30,10 @@ bool Point::operator>=(const Point& other) const {
 //Insertion Operator
 
 
-//Arithmetic Operators
+//Arithmetic Operator
+int Point::operator+(int value) {
+	return ();
+}
 
 
 //Compound Assignment Operator

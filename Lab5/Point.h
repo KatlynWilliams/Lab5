@@ -22,8 +22,8 @@ public:
 	//Insertion Operator
 
 
-	//Arithmetic Operators
-
+	//Arithmetic Operator
+	int operator+(int value);
 
 	//Compound Assignment Operator
 
