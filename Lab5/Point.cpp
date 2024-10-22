@@ -36,16 +36,17 @@ std::ostream& operator<<(std::ostream& stream, const Point& point) {
 }
 
 //Arithmetic Operator
-Point Point::operator+(int value) {
-	Point total{ x, y };
+Point& Point::operator+(int value) {
+	Point total{ 0, 0 };
 	total.x = total.x + value;
 	total.y = total.y + value;
-	return (total);
+	return total;
 }
 
 
 //Compound Assignment Operator
-void Point::operator+=(int value) {
+Point& Point::operator+=(int value) {
 	x = x + value;
 	y = y + value;
+	return *this;
 }
