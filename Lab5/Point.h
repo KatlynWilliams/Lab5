@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <ostream>
 
 class Point
 {
@@ -20,12 +21,12 @@ public:
 	bool operator>=(const Point& other) const;
 
 	//Insertion Operator
-
+	friend std::ostream& operator<<(std::ostream& stream, const Point& point);
 
 	//Arithmetic Operator
-	int operator+(int value);
+	void operator+(int value);
 
 	//Compound Assignment Operator
-
+	Point operator=+(int value);
 };
 
