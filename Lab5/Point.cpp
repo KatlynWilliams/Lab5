@@ -8,33 +8,42 @@ Point::Point(int x, int y) {
 
 //Equality Operators
 bool Point::operator==(const Point& other) const {
-	return ();
+	return (x == other.x) && (y == other.y);
 }
 bool Point::operator!=(const Point& other) const {
-	return !();
+	return !(x == other.x) && (y == other.y);
 }
 
 //Comparison Operators
 bool Point::operator<(const Point& other) const {
-	return ();
+	return (x < other.x) && (y < other.y);
 }
 bool Point::operator>(const Point& other) const {
-	return ();
+	return (x > other.x) && (y > other.y);
 }
 bool Point::operator<=(const Point& other) const {
-	return !();
+	return !(x > other.x) && (y > other.y);
 }
 bool Point::operator>=(const Point& other) const {
-	return !();
+	return !(x < other.x) && (y < other.y);
 }
 //Insertion Operator
-
+std::ostream& operator<<(std::ostream& stream, const Point& point) {
+	stream << point.value;
+	//stream << point.getValue();
+	return stream;
 
 //Arithmetic Operator
-int Point::operator+(int value) {
-	return ();
+Point Point::operator+(int value) {
+	Point total;
+	total.x = total.x + value;
+	total.y = total.y + value;
+	return (total);
 }
 
 
 //Compound Assignment Operator
-
+void Point::operator+=(int value) {
+	x = x + value;
+	y = y + value;
+}
