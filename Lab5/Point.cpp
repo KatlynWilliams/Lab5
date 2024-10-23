@@ -1,52 +1,44 @@
 #include "Point.h"
 
+// Constructor
+Point::Point(int x, int y) : x(x), y(y) {}
 
-//Constructor
-Point::Point(int x, int y) {
-	this->x = x;
-	this->y = y;
-}
-
-//Equality Operators
+// Equality Operators
 bool Point::operator==(const Point& other) const {
-	return (x == other.x) && (y == other.y);
+    return (x == other.x) && (y == other.y);
 }
 bool Point::operator!=(const Point& other) const {
-	return !(x == other.x) && (y == other.y);
+    return !(*this == other);
 }
 
-//Comparison Operators
+// Comparison Operators
 bool Point::operator<(const Point& other) const {
-	return (x < other.x) && (y < other.y);
+    return (x < other.x) || (x == other.x && y < other.y);
 }
 bool Point::operator>(const Point& other) const {
-	return (x > other.x) && (y > other.y);
+    return other < *this;
 }
 bool Point::operator<=(const Point& other) const {
-	return !(x > other.x) && (y > other.y);
+    return !(other < *this);
 }
 bool Point::operator>=(const Point& other) const {
-	return !(x < other.x) && (y < other.y);
+    return !(*this < other);
 }
-//Insertion Operator
+
+// Insertion Operator
 std::ostream& operator<<(std::ostream& stream, const Point& point) {
-	stream << point.x;
-	stream << point.y;
-	return stream;
+    stream << "(" << point.x << ", " << point.y << ")";
+    return stream;
 }
 
-//Arithmetic Operator
-Point& Point::operator+(int value) {
-	Point total{ 0, 0 };
-	total.x = total.x + value;
-	total.y = total.y + value;
-	return total;
+// Arithmetic Operator
+Point Point::operator+(int value) const {
+    return Point(x + value, y + value);
 }
 
-
-//Compound Assignment Operator
+// Compound Assignment Operator
 Point& Point::operator+=(int value) {
-	x = x + value;
-	y = y + value;
-	return *this;
+    x += value;
+    y += value;
+    return *this;
 }
